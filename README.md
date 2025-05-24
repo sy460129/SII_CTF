@@ -58,6 +58,7 @@ $ docker pull ctfd/ctfd
 이제 EC2 인스턴스에서 할 일은 없음.
 
 각 문제별로 도커파일 내부에서 실행 → 내가 docker 접근은 root로 하고, 파일의 권한은 userid로 하도록 도커파일을 생성해야 함
+이 아니고 권한은 root로 해야함..
 
 # 예시, 문제 이름은 rtw
 
@@ -75,7 +76,7 @@ WORKDIR /home/rtw
 COPY ./chall ./chall
 COPY ./flag ./flag
 
-RUN chown inha:inha ./chall ./flag
+# RUN chown inha:inha ./chall ./flag
 RUN chmod 755 ./chall
 RUN chmod 444 ./flag
 
